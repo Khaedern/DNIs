@@ -33,13 +33,13 @@ public class A1RedimensionarArray {
         String[] nouArrayDni = new String[arrayDNI.length + i];
         String dniIntroduit = demanarString();
         while (!dniIntroduit.contentEquals("0")) {
-            demanarString();
+            dniIntroduit=demanarString();
             if (!dniIntroduit.contentEquals("0")) {
                 arrayDNI[i]=dniIntroduit;
                 //buscarDNI(dniIntroduit, arrayDNI);
 
                 if (!buscarDNI(dniIntroduit, arrayDNI)) {
-                    guardarDNI(nouArrayDni, dniIntroduit);
+                    arrayDNI = guardarDNI(arrayDNI, dniIntroduit);
                     
                     mostrarArrayDNI(arrayDNI);
                     i++;
