@@ -29,13 +29,13 @@ public class A1RedimensionarArray {
     //Programa principal. Anirà demanat dni's fins que introuint un 0 
     private void inici() {
         int i=0;
-        String[] arrayDNI = new String[1];
+        String[] arrayDNI = new String[0];
         String[] nouArrayDni = new String[arrayDNI.length + i];
         String dniIntroduit = demanarString();
         while (!dniIntroduit.contentEquals("0")) {
-            dniIntroduit=demanarString();
+            
             if (!dniIntroduit.contentEquals("0")) {
-                arrayDNI[i]=dniIntroduit;
+                
                 //buscarDNI(dniIntroduit, arrayDNI);
 
                 if (!buscarDNI(dniIntroduit, arrayDNI)) {
@@ -61,7 +61,7 @@ public class A1RedimensionarArray {
             nouArrayDni[i] = dnis[i];
         }
         
-        nouArrayDni[dnis.length + 1] = nouDNI;
+        nouArrayDni[dnis.length] = nouDNI;
         return nouArrayDni;
     }
 
@@ -82,7 +82,7 @@ public class A1RedimensionarArray {
     //Funció que buscar si el dni introduit està repetit  
     private boolean buscarDNI(String nouDNI, String[] llistaDNI) {
         boolean dniTrobat = false;
-        for (int x = 0; x < llistaDNI.length; x++) {
+        for (int x = 0; x < llistaDNI.length-1; x++) {
             if (llistaDNI[x].equals(nouDNI)) {
                 dniTrobat = true;
             }
