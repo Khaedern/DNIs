@@ -13,10 +13,8 @@ import java.util.Scanner;
  */
 public class A1RedimensionarArray {
 
-    
-
     String dniDemanat = "";
-    int midaArray=1;
+    int midaArray = 1;
 
     public static void main(String[] args) {
         // TODO code application logic here
@@ -28,25 +26,20 @@ public class A1RedimensionarArray {
 
     //Programa principal. Anirà demanat dni's fins que introuint un 0 
     private void inici() {
-        int i=0;
+        int i = 0;
         String[] arrayDNI = new String[0];
         String[] nouArrayDni = new String[arrayDNI.length + i];
         String dniIntroduit = demanarString();
         while (!dniIntroduit.contentEquals("0")) {
-            
-            if (!dniIntroduit.contentEquals("0")) {
-                
-                //buscarDNI(dniIntroduit, arrayDNI);
+            if (!buscarDNI(dniIntroduit, arrayDNI)) {
+                arrayDNI = guardarDNI(arrayDNI, dniIntroduit);
 
-                if (!buscarDNI(dniIntroduit, arrayDNI)) {
-                    arrayDNI = guardarDNI(arrayDNI, dniIntroduit);
-                    
-                    mostrarArrayDNI(arrayDNI);
-                    i++;
-                } else {
-                    System.out.println("DNI " + dniIntroduit + " ja existeix");
-                }
+                mostrarArrayDNI(arrayDNI);
+                i++;
+            } else {
+                System.out.println("DNI " + dniIntroduit + " ja existeix");
             }
+            dniIntroduit = demanarString();
         }
 
         System.out.println("El programa ha finalitzat amb els següents DNIs introduïts:");
@@ -60,7 +53,7 @@ public class A1RedimensionarArray {
         for (int i = 0; i < dnis.length; i++) {
             nouArrayDni[i] = dnis[i];
         }
-        
+
         nouArrayDni[dnis.length] = nouDNI;
         return nouArrayDni;
     }
@@ -82,7 +75,7 @@ public class A1RedimensionarArray {
     //Funció que buscar si el dni introduit està repetit  
     private boolean buscarDNI(String nouDNI, String[] llistaDNI) {
         boolean dniTrobat = false;
-        for (int x = 0; x < llistaDNI.length-1; x++) {
+        for (int x = 0; x < llistaDNI.length - 1; x++) {
             if (llistaDNI[x].equals(nouDNI)) {
                 dniTrobat = true;
             }
